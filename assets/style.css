@@ -1,32 +1,41 @@
 * {
     box-sizing: border-box;
+    justify-content: center;
 }
 
 #time {
     text-align: right;
 }
 
-#title {
-    text-align: center;
+body {
+    background-color: rgb(145, 145, 145);
+    display: grid;
+    margin-top: 100px;
 }
 
-body {
+h1 {
+    display: grid;
+}
+
+.main {
     padding: 0;
     margin: 0;
     display: flex;
     width: 100vh;
-    height: 100vh;
     justify-content: center;
     align-items: center;
+    background-color: rgb(145, 145, 145);
 }
 
 .container {
     width: 800px;
+    height: 200px;
     max-width: 80%;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
+    margin-top: 50px;
 }
 
 .buttonGrid {
@@ -36,11 +45,11 @@ body {
     margin: 20px 0;
 }
 
-.btn.correct {
+.button.correct {
     background-color: green;
 }
 
-.btn.incorrect {
+.button.incorrect {
     background-color: red;
 }
 

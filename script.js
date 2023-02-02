@@ -11,7 +11,7 @@ var secondsLeft = 10;
 function setTime() {
     var timerInterval = setInterval(function(){
         secondsLeft--;
-        timeEl.textContent = secondsLeft + " seconds left.";
+        timeEl.textContent = secondsLeft + " seconds left";
 
         if(secondsLeft === 0) {
             clearInterval(timerInterval);
@@ -21,7 +21,6 @@ function setTime() {
     }, 1000);
 };
 
-// setTime();
 
 var startButton = document.getElementById('startButton')
 var nextButton = document.getElementById('nextButton')
@@ -38,11 +37,12 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame(){
-    startButton.classList.add('hide')
-    randomQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
-    questionContainerEl.classList.remove('hide')
-    setQuestion()
+    startButton.classList.add('hide');
+    randomQuestions = questions.sort(() => Math.random() - .5);
+    currentQuestionIndex = 0;
+    questionContainerEl.classList.remove('hide');
+    setQuestion();
+    setTime();
 }
 
 function setQuestion() {
@@ -55,7 +55,7 @@ function showQuestion(question) {
     question.answers.forEach(answer => {
         var button = document.createElement('button')
         button.innerText = answer.text
-        button.classList.add('btn')
+        button.classList.add('button')
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
@@ -104,31 +104,39 @@ function clearStatusClass(element) {
 var questions = [
 
     {
-        question: 'Question 1',
+        question: 'Inside which HTML element do we put the JavaScript?',
         answers: [
-            {text: 'Answer 1', correct: true},
-            {text: 'Answer 2', correct: false}
+            {text: '<script>', correct: true},
+            {text: '<javascript>', correct: false},
+            {text: '<scripting>', correct: false},
+            {text: '<js>', correct: false}
         ]
     },
     {
-        question: 'Question 2',
+        question: 'What is the correct syntax for referring to an external script called "script.js"?',
         answers: [
-            {text: 'Answer 1', correct: true},
-            {text: 'Answer 2', correct: false}
+            {text: '<script name="script.js">', correct: false},
+            {text: '<script src="script.js">', correct: true},
+            {text: '<script href="script.js">', correct: false},
+            {text: '<script alt="script.js">', correct: false}
         ]
     },
     {
-        question: 'Question 3',
+        question: 'How do you create a function in JavaScript?',
         answers: [
-            {text: 'Answer 1', correct: true},
-            {text: 'Answer 2', correct: false}
+            {text: 'function = myFunction()', correct: false},
+            {text: 'function:myFunction()', correct: false},
+            {text: 'function myFunction()', correct: true},
+            {text: 'function -> myFunction()', correct: false}
         ]
     },
     {
-        question: 'Question 4',
+        question: 'How do you call a function named "myFunction"?',
         answers: [
-            {text: 'Answer 1', correct: true},
-            {text: 'Answer 2', correct: false}
+            {text: 'return myFunction()', correct: false},
+            {text: 'call myFunction()', correct: false},
+            {text: 'call function myFunction()', correct: false},
+            {text: 'myFunction()', correct: true}
         ]
     },
 ]
