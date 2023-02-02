@@ -6,7 +6,7 @@
     //User can enter their initials to save score
 
 var timeEl = document.querySelector("#time");
-var secondsLeft = 10;
+var secondsLeft = 60;
 
 function setTime() {
     var timerInterval = setInterval(function(){
@@ -101,6 +101,7 @@ function clearStatusClass(element) {
     element.classList.remove('incorrect')
 }
 
+// variables for each question
 var questions = [
 
     {
